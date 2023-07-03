@@ -9,6 +9,9 @@ const Statistics = ({
     setBad
   }) => {
     const all = good + neutral + bad
+
+  
+
     return (
       <>
         <h3>give feedback</h3>
@@ -21,14 +24,18 @@ const Statistics = ({
 
         <h3>statistics</h3>
 
-        <div>
-          <div>good {good}</div>
-          <div>neutral {neutral}</div>
-          <div>bad {bad}</div>
-          <div>all {all}</div>
-          <div>average {(good - bad) / all || 0}</div>
-          <div>positive {good / all * 100 || 0} %</div>
-        </div>
+        { all === 0 
+            ? 'No feedback given'
+            : <div>
+                <div>good {good}</div>
+                <div>neutral {neutral}</div>
+                <div>bad {bad}</div>
+                <div>all {all}</div>
+                <div>average {(good - bad) / all || 0}</div>
+                <div>positive {good / all * 100 || 0} %</div>
+              </div> 
+          }
+        
       </>
   )
 }
